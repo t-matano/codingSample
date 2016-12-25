@@ -1,0 +1,325 @@
+@charset "UTF-8";
+
+// font size
+$baseFontSize: 62.5%;
+
+// font family
+$font_0: Quicksand;
+$font_1: 游ゴシック体;
+$font_2: 'Yu Gothic';
+$font_3: YuGothic;
+$font_4: 'ヒラギノ角ゴシック Pro';
+$font_5: 'Hiragino Kaku Gothic Pro';
+$font_6: メイリオ;
+$font_7: Meiryo;
+$font_8: Osaka;
+$font_9: 'ＭＳ Ｐゴシック';
+$font_10: 'MS PGothic';
+$font_11: sans-serif;
+
+// link
+$link: #0000ff;
+$visited: #800080;
+$hover: #ff0000;
+$active: #ff0000;
+
+a {
+	&:link {
+		color: $link;
+	}
+	&:visited {
+		color: $visited;
+	}
+	&:hover {
+		color: $hover;
+	}
+	&:active {
+		color: $active;
+	}
+}
+
+
+// PCのスタイル
+
+	$container: 600px;
+	$sidebar: 180px;
+	$margin: 15px;
+	$contents: 400px;
+
+	@function getWidth($width, $container) {
+		$widthResponsive: ($width / $container) * 100%;
+		@return $widthResponsive;
+	}
+
+html {
+	font-size: $baseFontSize;
+	background-image: url('../img/grey.png');
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	font-family: $font_0, $font_1, $font_2, $font_3, $font_4, $font_5, $font_6, $font_7, $font_8, $font_9, $font_10, $font_11;
+	font-size: 1.2rem;
+	> #container {
+		height: auto;
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+#container {
+	min-height: 100%;
+	height: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 0 10px;
+	background-color: #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+	box-sizing: border-box;
+}
+
+#header {
+	margin-bottom: 15px;
+}
+
+#topicPath {
+	font-size: 1.2rem;
+	margin-bottom: 15px;
+	/* text-align: right;	// 右寄せver*/
+	li {
+		display: inline;
+		line-height: 110%;
+		&:not(:last-child):after {
+			content: '>';
+		}
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+#menu {
+	margin-bottom: 15px;
+	overflow: hidden;
+	ul > li {
+		float: left;
+		width: 100px;
+		font-size: 1.4rem;
+		text-align: center;
+		padding: 4px;
+		background: #ccc;
+		margin-right: 10px;
+		border-radius: 4px;
+		text-shadow: 0 1px 0 #fff;
+		&:hover {
+			background: #ddd;
+		}
+		a {
+			text-decoration: none;
+			display: block;
+		}
+	}
+}
+
+#main {
+	overflow: hidden;
+	margin-bottom: 15px;
+	#contents {
+		float: left;
+		width: getWidth($contents, $container);
+	}
+	#sidebar {
+		float: right;
+		width: getWidth($sidebar, $container);
+	}
+}
+
+h2, h3 {
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.6rem;
+	border-left: 5px solid #ccc;
+	padding: 3px 0 3px 10px;
+	margin-bottom: 10px;
+}
+
+h3 {
+	font-size: 1.4rem;
+	border-bottom: 1px solid #ccc;
+	padding: 3px 0;
+	margin-bottom: 10px;
+}
+
+p {
+	font-size: 1.4rem;
+	margin-bottom: 14px;
+}
+
+ul.products {
+	margin-bottom: 15px;
+	li {
+		overflow: hidden;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px dotted #ccc;
+		&:last-child {
+			border: none;
+		}
+		> img {
+			float: left;
+			width: 60px;
+		}
+		> p {
+			margin-left: 70px;
+			font-size: 1.4rem;
+		}
+	}
+}
+
+div.sample {
+	float: right;
+	width: 66px;
+	margin-left: 10px;
+	position: relative;
+	> p {
+		font-size: 1rem;
+	}
+	> img {
+		padding: 2px;
+		background: #fff;
+		border: 1px solid #ccc;
+	}
+}
+
+.badge {
+	background: red;
+	color: white;
+	font-size: 1rem;
+	padding: 2px 4px 3px;
+	position: absolute;
+	top: -5px;
+	right: -5px;
+}
+
+.extend_pageNav {
+	display: inline-block;
+	margin-bottom: 5px;
+	padding: 1px 8px;
+	background: #fff;
+	border: 1px solid #aaa;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+#contents ul.pageNav {
+	font-size: 1.2rem;
+	margin: 0 0 10px;
+	padding: 10px 10px 5px;
+	background: #eee;
+	text-align: center;
+	li {
+		display: inline;
+		margin: 0 2px;
+		padding: 0;
+		span {
+			@extend .extend_pageNav;
+		}
+		a {
+			@extend .extend_pageNav;
+			&:hover {
+				background: #eeeff7;
+				border-color: #0f0;
+			}
+		}
+	}
+}
+
+#show {
+	display: none;
+}
+#menu_sp {
+	display: none;
+}
+
+ul.submenu > li {
+	font-size: 1.2rem;
+	background: url('../img/dotinstall.png') no-repeat;
+	padding: 0 0 5px 20px;
+}
+
+#footer {
+	font-size: 1.2rem;
+	color: #333;
+	text-align: center;
+	border-top: 1px solid #999;
+	padding: 10px 0 20px;
+}
+
+#back-to-top {
+	position:fixed;
+	right: 15px;
+	bottom: 60px;
+}
+
+@media all and (max-width: 400px) {
+
+	#show-outer {
+		overflow: hidden;
+		#show {
+			float: right;
+			cursor: pointer;
+			display: block;
+			font-size: 1.8rem;
+		}
+	}
+	.sample {
+		margin-right: 10px;
+	}
+	#menu {
+		display: none;
+	}
+	#menu_sp {
+		display: none;
+		ul {
+			width: 250px;
+			margin: 15px auto;
+			li {
+				width: 250px;
+				margin-bottom: 1px;
+				a {
+					background-color: rgba(0, 0, 0, .2);
+					width: 250px;
+					padding: 12px;
+					display: block;
+					text-decoration: none;
+					box-sizing: border-box;
+				}
+				&:hover {
+					opacity: .8;
+				}
+			}
+		}
+	}
+
+	#main {
+		#contents {
+			float: none;
+			width: 100%;
+		}
+		#sidebar {
+			float: none;
+			width: 100%;
+		}
+	}
+
+	#back-to-top {
+		display: none;
+	}
+
+}
