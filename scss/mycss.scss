@@ -197,6 +197,25 @@ div.sample {
 	}
 }
 
+table.list {
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	// width: 100%;
+	width: getWidth(400, 400);
+	margin-bottom: 15px;
+	th {
+		background: #ddd;
+		// width: 30%;
+		width: getWidth(120, 400);
+	}
+	th, td {
+		border-right: 1px solid #999;
+		border-bottom: 1px solid #999;
+		padding: 10px;
+		box-sizing: border-box;
+	}
+}
+
 .badge {
 	background: red;
 	color: white;
@@ -314,6 +333,16 @@ ul.submenu > li {
 		}
 		#sidebar {
 			float: none;
+			width: 100%;
+		}
+	}
+
+	table.list {
+		tr {
+			display: block;
+		}
+		th, td {
+			display: block;
 			width: 100%;
 		}
 	}
